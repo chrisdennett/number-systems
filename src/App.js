@@ -24,8 +24,6 @@ const App = () => {
     <div className={"app"}>
       <div>count: {count}</div>
 
-      <BinaryTable maxValue={maxCount} currentValue={count} />
-
       <button onClick={() => setIsRunning(!isRunning)}>
         {isRunning ? "pause" : "start"}
       </button>
@@ -33,6 +31,8 @@ const App = () => {
       <button onClick={() => setDelay(delay === 1000 ? 50 : 1000)}>
         {delay === 1000 ? "go fast" : "go slow"}
       </button>
+
+      <BinaryTable maxValue={maxCount} currentValue={count} />
     </div>
   );
 };
