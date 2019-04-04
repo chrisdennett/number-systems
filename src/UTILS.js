@@ -1,48 +1,4 @@
 export const maxCount = 1023;
-
-export const toBinary = (num, binaryCols) => {
-  let binaryArr = new Array(binaryCols.length);
-  let currentNum = num;
-  let colNum;
-  for (let i = 0; i < binaryCols.length; i++) {
-    colNum = binaryCols[i];
-    if (currentNum >= colNum) {
-      binaryArr[i] = 1;
-      currentNum -= colNum;
-    } else {
-      binaryArr[i] = 0;
-    }
-  }
-
-  return binaryArr;
-};
-
-export const createBinaryColumns = (maxValue = maxValue) => {
-  const binaryCols = [];
-  let currentValue = 1;
-
-  while (currentValue < maxValue) {
-    binaryCols.unshift(currentValue);
-
-    currentValue *= 2;
-  }
-
-  return binaryCols;
-};
-
-export const createNumberSystemColumns = (base = 10, max = 9999) => {
-  const cols = [];
-  let currentValue = 1;
-
-  while (currentValue < max) {
-    cols.unshift(currentValue);
-
-    currentValue *= base;
-  }
-
-  return cols;
-};
-
 export const getNumberSystemArr = (num = 99, base = 10) => {
   // e.g. num = 8999
   let colValue = 1;

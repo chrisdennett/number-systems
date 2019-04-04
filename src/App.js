@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 // utils
-import { toBinary, createBinaryColumns, maxCount } from "./UTILS";
+import { maxCount } from "./UTILS";
 import useInterval from "./UseInterval";
 // styles
 import "./styles.css";
-import BinaryTable from "./BinaryTable";
-
-const binaryCols = createBinaryColumns(maxCount);
+import NumberSystemTable from "./NumberSystemTable";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -32,7 +30,8 @@ const App = () => {
         {delay === 1000 ? "go fast" : "go slow"}
       </button>
 
-      <BinaryTable maxValue={maxCount} currentValue={count} />
+      <NumberSystemTable currentValue={count} base={2} />
+      <NumberSystemTable currentValue={count} base={10} />
     </div>
   );
 };
