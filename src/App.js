@@ -32,6 +32,7 @@ const App = () => {
 
       <NumberSystemTable currentValue={count} base={2} />
       <NumberSystemTable currentValue={count} base={10} />
+      <NumberSystemTable currentValue={count} base={16} />
     </div>
   );
 };
