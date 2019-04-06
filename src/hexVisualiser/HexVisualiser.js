@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from 'styled-components';
 // ui
 import '@material/slider/dist/mdc.slider.css';
 import { Slider } from '@rmwc/slider';
@@ -39,13 +40,19 @@ const HexVisualiser = () => {
           fill={`rgb(${0}, ${0}, ${b})`} />
       </svg>
 
-      <div>
+      <ColourVisHolder>
           <ColourVisualiser value={r} onChange={setR} />
           <ColourVisualiser value={g} onChange={setG} />
           <ColourVisualiser value={b} onChange={setB} />
-        </div>
+      </ColourVisHolder>
     </div>
   );
 };
 
 export default HexVisualiser;
+
+
+const ColourVisHolder = styled.div`
+  display: flex;
+  width: 100%;
+`;
