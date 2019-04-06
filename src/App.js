@@ -3,7 +3,9 @@ import React, { useState } from "react";
 import useInterval from "./UseInterval";
 // styles
 import "./styles.css";
+// comps
 import NumberSystemTable from "./NumberSystemTable";
+import HexVisualiser from './hexVisualiser/HexVisualiser';
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -31,7 +33,7 @@ const App = () => {
 
       {/* <NumberSystemTable currentValue={count} base={2} /> */}
       <NumberSystemTable currentValue={count} base={10} />
-      <NumberSystemTable currentValue={count} base={16} totalColumns={6} />
+      <HexVisualiser />
     </div>
   );
 };

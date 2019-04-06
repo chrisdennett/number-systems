@@ -13,21 +13,20 @@ export const getNumberSystemArr = (
   let colValue = 1;
   cols = [{ col: colValue }];
 
+  // create the array of columns by adding a column for 1's
+  // then multiply curr column number by the base to get the next col
+  // repeat until the number of the column to be made is bigger than the number
   if (totalColumns === "auto") {
-    // create the array of columns by adding a column for 1's
-    // then multiply curr column number by the base to get the next col
-    // repeat until the number of the column to be made is bigger than the number
     while (colValue * base <= num) {
       colValue *= base;
       cols.unshift({ col: colValue });
     }
   } else {
-    // cols = Array.from({ length: totalColumns });
+    // if a theres a set number of colums
     for (let c = 1; c < totalColumns; c++) {
       colValue *= base;
       cols.unshift({ col: colValue });
     }
-    console.log(cols);
   }
 
   // then go through those columns in reverse and minus the value of the column
@@ -39,7 +38,8 @@ export const getNumberSystemArr = (
     for (let j = 0; j < base; j++) {
       if (num >= colObj.col) {
         num -= colObj.col;
-        colCount++;
+        // prevent count going above col max (base - 1 because start at zero)
+        if(colCount < base - 1) colCount++;
       }
     }
 
