@@ -7,8 +7,7 @@ import NumberSystemTable from '../NumberSystemTable';
 
 const ColourVisualiser = ({value, onChange}) => {
     return (
-
-        <div style={{flex: 1, margin:20}}>
+        <div style={{flex: 1, margin:10}}>
             <NumberSystemTable currentValue={value} base={16} totalColumns={2} />
             <Slider
                 value={value}
