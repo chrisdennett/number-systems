@@ -3,8 +3,8 @@ import NumberColumn from "./NumberColumn";
 import { getNumberSystemArr } from "./UTILS";
 import styled from "styled-components";
 
-const NumberSystemTable = ({ currentValue, base }) => {
-  const tableArr = getNumberSystemArr(currentValue, base);
+const NumberSystemTable = ({ currentValue, base, totalColumns = "auto" }) => {
+  const tableArr = getNumberSystemArr(currentValue, base, totalColumns);
 
   return (
     <Table>

@@ -1,10 +1,9 @@
-export const maxCount = 1023;
+// export const maxCount = 1023;
 
 const digits = "0123456789abcdefghijklmnopqrstuvwxyz";
 const digitArr = digits.split("");
-console.log(digitArr);
 
-export const getNumberSystemArr = (num = 99, base = 10) => {
+export const getNumberSystemArr = (num = 99, base = 10, totalColumns='auto') => {
   // e.g. num = 8999
   let colValue = 1;
   const cols = [{ col: colValue }];
