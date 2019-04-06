@@ -10,16 +10,15 @@ const HexVisualiser = () => {
   const [b, setB] = useState(42);
 
   return (
-    <div>
-    
-     <RGBDisplay r={r} g={g} b={b} />
-
+    <HexVisualiserContainer>
       <ColourVisHolder>
           <ColourVisualiser value={r} onChange={setR} />
           <ColourVisualiser value={g} onChange={setG} />
           <ColourVisualiser value={b} onChange={setB} />
       </ColourVisHolder>
-    </div>
+
+      <RGBDisplay r={r} g={g} b={b} />
+    </HexVisualiserContainer>
   );
 };
 
@@ -29,4 +28,8 @@ export default HexVisualiser;
 const ColourVisHolder = styled.div`
   display: flex;
   width: 100%;
+`;
+
+const HexVisualiserContainer = styled.div`
+  max-width: 800px;
 `;

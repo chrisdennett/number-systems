@@ -1,48 +1,49 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const RGBDisplay = ({r, g, b}) => {
-
-    const totalHeight = 40;
-    const totalWidth = 100;
-
-    const padding = 2;
-    const smallBlockWidth = (totalWidth-(padding*4)) / 3;
-    const smallBlock1X = padding;
-    const smallBlock2X = smallBlock1X + smallBlockWidth + padding;
-    const smallBlock3X = smallBlock2X + smallBlockWidth + padding;
-
-    const largeBlockWidth = totalWidth;
-    const largeBlockHeight = totalHeight * 0.60;
-    const smallBlockY = largeBlockHeight + padding;
-    const smallBlockHeight = totalHeight - smallBlockY;
+const RGBDisplay = ({ r, g, b }) => {
+    const brightness = (r+g+b) / 3;
+    const bgTextColour = brightness > 127 ? 'black' : 'white';
+    const largeBlockStyle = {
+        background:`rgb(${r},${g},${b})`,
+        color:bgTextColour
+    }
 
     return (
-        <svg width={'100%'} height={'100%'} viewBox={`0 0 ${totalWidth} ${totalHeight}`}>
-            <rect x={0}
-                y={0}
-                width={largeBlockWidth}
-                height={largeBlockHeight}
-                fill={`rgb(${r}, ${g}, ${b})`} />
-
-            <rect x={smallBlock1X}
-                y={smallBlockY}
-                width={smallBlockWidth}
-                height={smallBlockHeight}
-                fill={`rgb(${r}, ${0}, ${0})`} />
-
-            <rect x={smallBlock2X}
-                y={smallBlockY}
-                width={smallBlockWidth}
-                height={smallBlockHeight}
-                fill={`rgb(${0}, ${g}, ${0})`} />
-
-            <rect x={smallBlock3X}
-                y={smallBlockY}
-                width={smallBlockWidth}
-                height={smallBlockHeight}
-                fill={`rgb(${0}, ${0}, ${b})`} />
-        </svg>
+        <Container>
+            <SmallBlockHolder >
+                <SmallColourBlock style={{background:`rgb(${r},0,0)`}}/>
+                <SmallColourBlock style={{background:`rgb(0,${g},0)`}}/>
+                <SmallColourBlock style={{background:`rgb(0,0,${b})`}}/>
+            </SmallBlockHolder>
+            <LargeColourBlock style={largeBlockStyle}>
+                {`rgb(${r},${g},${b})`}
+            </LargeColourBlock>
+        </Container>
     )
 };
 
 export default RGBDisplay;
+
+const Container = styled.div``;
+
+const LargeColourBlock = styled.div`
+    width: 100%;
+    height: 80px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+`;
+
+const SmallBlockHolder = styled.div`
+    display: flex;
+`;
+
+const SmallColourBlock = styled.div`
+    height: 20px;
+    flex: 1;
+    margin: 0 5px;
+    background: black;
+`;
