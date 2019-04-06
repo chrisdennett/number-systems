@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <div className={"app"}>
-      <div>count: {count}</div>
+      <div>Number: {count}</div>
 
       <button onClick={() => setIsRunning(!isRunning)}>
         {isRunning ? "pause" : "start"}
