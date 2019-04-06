@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 // utils
-import { maxCount } from "./UTILS";
 import useInterval from "./UseInterval";
 // styles
 import "./styles.css";
@@ -30,9 +29,9 @@ const App = () => {
         {delay === 1000 ? "go fast" : "go slow"}
       </button>
 
-      <NumberSystemTable currentValue={count} base={2} />
+      {/* <NumberSystemTable currentValue={count} base={2} /> */}
       <NumberSystemTable currentValue={count} base={10} />
-      <NumberSystemTable currentValue={count} base={16} />
+      <NumberSystemTable currentValue={count} base={16} totalColumns={6} />
     </div>
   );
 };
